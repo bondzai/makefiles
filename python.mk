@@ -1,7 +1,7 @@
 # Makefile for Django projects
 
 # Configuration
-VENV_NAME = myenv
+VENV_NAME = env
 PYTHON = python
 PIP = pip
 SERVER_HOST = 0.0.0.0
@@ -16,10 +16,14 @@ setup:
     @echo "Installing dependencies..."
     $(PIP) install -r requirements.txt
 
+activate:
+    @echo "Activating virtual environment..."
+    source $(VENV_NAME)/bin/activate
+
 # Django commands
 migrate:
     @echo "Running migrations..."
-    $(PYTHON) manage.py migrate
+    $(PYTHON) manage.py migrate --run-syncdb
 
 makemigrations:
     @echo "Creating new migrations..."
@@ -46,4 +50,4 @@ clean:
     rm -rf $(VENV_NAME)
 
 # Utility rules
-.PHONY: setup migrate makemigrations run test reset_db clean
+.PHONY: setup activate migrate makemigrations run test reset_db clean
