@@ -32,7 +32,6 @@ ez-init:
 # Install the dogo compiler for automatic rebuilds. Create a dogo.json configuration file if it doesn't exist
 dogo-init:
 	go get github.com/liudng/dogo
-	go install github.com/liudng/dogo
 	@if [ ! -e dogo.json ]; then \
 		echo 'Creating default dogo.json configuration file...'; \
 		echo '{' > dogo.json; \
