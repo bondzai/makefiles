@@ -57,5 +57,5 @@ create-prettier-config:
 
 format:
 	@echo 'Formatting code...'
-	@prettier --write "**/*.js"
+	@prettier --write "**/*.{tsx,ts}"
 	@echo 'Done!'
